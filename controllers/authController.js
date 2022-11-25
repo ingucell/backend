@@ -6,7 +6,7 @@ const usersDB = {
 const bcrypt = require('bcrypt')
 
 const handleLogin = async (req, res) =>{
-    const {user, pwd} = req.body;
+    const {fullName, password} = req.body;
     if(!user || !pwd) return res.status(400).json({'message':'name & pwd are required'});
     const foundUser = usersDB.users.find(person => person.fullName === user);
     if(!foundUser) return res.sendStatus(401)//Unauthorized
