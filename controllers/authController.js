@@ -15,6 +15,9 @@ const handleLogin = async (req, res) =>{
 
     const match = await bcrypt.compare(pwd, foundUser.password);
     if(match){
+
+        
+        //JWT's
         res.json({'sucess': `User ${user} is logged in!`})
     }else{
         res.sendStatus(401);

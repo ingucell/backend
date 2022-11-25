@@ -10,7 +10,7 @@ const bcrypt = require('bcrypt');
 
 const handleNewUser = async (req, res) =>{
      const {fullName, conPwd, pwd, accountNumber, email} = req.body;
-     if(!fullName || !pwd || !conPwd || !accountNumber || !email) return res.status(400).json({'message':'name & pwd are required'});
+     if(!fullName || !pwd || !conPwd || !accountNumber || !email) return res.status(400).json({'message':'missing parameters, check of fullName, pw, conPwd, accountNumber, email are available'});
 
      //password confirmation
       if(pwd !== conPwd)  return res.status(409).json({'message': `pwd is not a match`})
